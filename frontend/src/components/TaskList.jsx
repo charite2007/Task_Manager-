@@ -1,4 +1,4 @@
-export default function TaskList({ tasks, onToggle, onDelete }) {
+export default function TaskList({ tasks, onToggle, onDelete, onEdit }) {
   if (tasks.length === 0) {
     return (
       <div className="text-center py-12 sm:py-16">
@@ -15,9 +15,9 @@ export default function TaskList({ tasks, onToggle, onDelete }) {
         {tasks.map((task, index) => (
           <li
             key={task._id}
-            className={`group bg-linear-to-r from-gray-700/40 to-gray-600/20 border-2 border-gray-600/50 hover:border-orange-500/50 rounded-xl p-4 sm:p-5 transition-all duration-300 transform hover:scale-102 hover:shadow-lg hover:shadow-orange-500/20 animate-slideUp ${
+            className={`group bg-gradient-to-r from-gray-700/40 to-gray-600/20 border-2 border-gray-600/50 hover:border-orange-500/50 rounded-xl p-4 sm:p-5 transition-all duration-300 transform hover:scale-102 hover:shadow-lg hover:shadow-orange-500/20 animate-slideUp ${
               task.completed
-                ? "opacity-60 bg-linear-to-r from-green-900/20 to-gray-600/20"
+                ? "opacity-60 bg-gradient-to-r from-green-900/20 to-gray-600/20"
                 : "opacity-100"
             }`}
             style={{ animationDelay: `${index * 50}ms` }}
@@ -57,6 +57,12 @@ export default function TaskList({ tasks, onToggle, onDelete }) {
                   }`}
                 >
                   {task.completed ? "✓ Done" : "✓ Complete"}
+                </button>
+                <button
+                  onClick={() => onEdit(task)}
+                  className="px-4 py-2 sm:px-5 sm:py-2 bg-blue-600/20 text-blue-300 border-2 border-blue-600/40 hover:border-blue-500/60 rounded-lg text-xs sm:text-sm font-bold hover:bg-blue-600/40 transition-all duration-300 transform hover:scale-105 active:scale-95"
+                >
+                  ✏️ Edit
                 </button>
                 <button
                   onClick={() => onDelete(task._id)}

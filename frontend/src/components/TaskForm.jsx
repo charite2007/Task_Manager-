@@ -55,7 +55,7 @@ export default function TaskForm({ onAdd }) {
         )}
         <button
           type="submit"
-          className="w-full px-6 py-3 sm:py-4 bg-linear-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/50 shadow-lg active:scale-95 text-sm sm:text-base flex items-center justify-center gap-2"
+          className="w-full px-6 py-3 sm:py-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/50 shadow-lg active:scale-95 text-sm sm:text-base flex items-center justify-center gap-2"
         >
           <span>✨</span>
           <span>Add Task</span>
