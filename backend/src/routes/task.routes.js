@@ -5,8 +5,8 @@ const routes = express.Router()
 
 routes.get("/",getTasks);
 routes.get("/:id",getTaskById)
+routes.post("/create",createTask)
 routes.put("/:id",updateTask)
 routes.delete("/:id",deleteTask)
-routes.post("/createTask",createTask)
 
 export default routes
