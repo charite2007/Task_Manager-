@@ -5,8 +5,26 @@ import cors from "cors";
 
 const app = express();
 
+// CORS Configuration
+const allowedOrigins = [
+  "http://localhost:5173", // Local frontend (Vite default)
+  "http://localhost:3000", // Alternative local port
+  process.env.FRONTEND_URL, // Production Vercel URL
+].filter(Boolean);
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/api/task", routes);
